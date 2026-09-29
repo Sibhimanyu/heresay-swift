@@ -10,7 +10,7 @@ iOS 16+, macOS 13+. No dependencies.
 
 Xcode: **File › Add Package Dependencies…** → `https://github.com/Sibhimanyu/heresay-swift`
 
-Package.swift: `.package(url: "https://github.com/Sibhimanyu/heresay-swift", from: "0.2.0")`
+Package.swift: `.package(url: "https://github.com/Sibhimanyu/heresay-swift", from: "0.2.2")`
 
 ## Use
 
@@ -45,6 +45,11 @@ macOS: use `ContentView().heresay()` and add `.commands { HeresayCommands() }` t
 
 The key is public: it can only send reports. Each device gets a random id (kept in
 `UserDefaults`), which is how people see their own reports and nobody else's; no accounts.
+
+If the server doesn't know the key (the app was deleted from the dashboard, or the key is
+wrong), Heresay hides itself: the button and sheet stop showing, `Heresay.present()` does
+nothing, `Heresay.shared.isDisabled` is `true`, and one warning is printed. Being offline never
+hides it.
 
 ## Develop
 
